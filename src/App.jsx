@@ -13,6 +13,10 @@ function App() {
     setSearchParams({ tab: String(key) }, { replace: true });
   };
 
+  const mediaQuery = window.matchMedia(`(max-width: 430px)`);
+  const isMobile = mediaQuery.matches;
+  const orientation = isMobile ? "horizontal" : "vertical";
+
   return (
     <div id="center">
       <section id="hero">
@@ -21,16 +25,16 @@ function App() {
         </div>
         <div className="title">
           <h1>Compassionate Care At The End Of Life</h1>
-          <hr/>
+          {!isMobile && <hr/>}
         </div>
       </section>
       <section id="content">
         <div id="main">
-          <Tabs orientation="vertical" selectedKey={activeTab} onSelectionChange={handleSelectionChange}>
+          <Tabs orientation={orientation} selectedKey={activeTab} onSelectionChange={handleSelectionChange}>
             <TabList aria-label="Settings">
-              <Tab id="EOL">The End of Life Options Act</Tab>
-              <Tab id="about">About Geoffrey Weinstein, M.D.</Tab>
-              <Tab id="more">How to Find Out More</Tab>
+              <Tab id="EOL" data-orientation={orientation}>The End of Life Options Act</Tab>
+              <Tab id="about" data-orientation={orientation}>About Geoffrey Weinstein, M.D.</Tab>
+              <Tab id="more" data-orientation={orientation}>How to Find Out More</Tab>
             </TabList>
             <TabPanels>
               <TabPanel id="EOL">

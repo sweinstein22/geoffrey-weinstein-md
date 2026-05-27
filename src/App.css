@@ -15,8 +15,16 @@
       display: flex;
       max-height: 275px;
 
-      img {
-        flex-grow: 1;
+      @media screen and (max-width: 430px) {
+        img {
+          width: 100%;
+        }
+      }
+
+      @media screen and (min-width: 431px) {
+        img {
+          flex-grow: 1;
+        }
       }
     }
   }
@@ -50,7 +58,6 @@
 
   #footer {
     background-color: var(--teal);
-    width: 100%;
     color: var(--inverse-text-color);
     padding: 20px;
     text-align: center;
