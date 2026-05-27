@@ -1,0 +1,104 @@
+.react-aria-Tabs {
+  display: flex;
+  gap: 4px;
+  flex-direction: row;
+  .react-aria-TabPanels {
+    flex: 1;
+  }
+}
+
+.react-aria-TabList {
+  display: flex;
+
+  .react-aria-SelectionIndicator {
+    background: var(--text-color-hover);
+  }
+
+  &[data-orientation=vertical] {
+    flex-direction: column;
+    border-inline-end: 1px solid var(--border-color);
+
+    .react-aria-SelectionIndicator {
+      top: 0;
+      right: 0px;
+      height: 100%;
+      width: 3px;
+      transition-property: translate, height;
+    }
+  }
+}
+
+.react-aria-Tab {
+  padding: 15px 25px;
+  cursor: default;
+  outline: none;
+  position: relative;
+  transition: color 200ms;
+  --border-color: transparent;
+  forced-color-adjust: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &[data-hovered],
+  &[data-focus-visible] {
+    color: var(--text-color-hover);
+  }
+
+  .react-aria-SelectionIndicator {
+    position: absolute;
+    transition-duration: 200ms;
+    border-radius: 3px;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  &[data-selected] {
+    --border-color: var(--highlight-background);
+    color: var(--text-color-hover);
+  }
+
+  &[data-focus-visible] {
+    border-radius: 12px;
+    outline: 2px solid var(--focus-ring-color);
+    outline-offset: -8px;
+  }
+
+  &[href] {
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.react-aria-TabPanels {
+  position: relative;
+  width: 50px;
+  overflow: clip;
+}
+
+.react-aria-TabPanel {
+  padding: 10px 25px;
+  outline: none;
+  box-sizing: border-box;
+  transition: opacity 400ms;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
+  &[data-focus-visible] {
+    outline: 2px solid var(--focus-ring-color);
+  }
+
+  &[data-entering],
+  &[data-exiting] {
+    opacity: 0;
+  }
+
+  &[data-exiting] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}

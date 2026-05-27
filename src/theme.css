@@ -1,0 +1,70 @@
+:root {
+  --beige: #EDECED;
+  --teal: #6697A5;
+  --grey: #6b6375;
+  --black: #08060d;
+
+  --text-color: var(--grey);
+  --text-header: var(--black);
+  --text-color-hover: var(--teal);
+  --highlight-background-color: var(--teal);
+  --focus-ring-color: var(--teal);
+
+  --inverse-text-color: var(--beige);
+  --background-color: var(--beige);
+  --border-color: var(--grey);
+
+  --sans: 'IBM Plex Sans Condensed', 'Segoe UI', Roboto, sans-serif;
+
+  font: 18px var(--sans);
+
+  letter-spacing: 0.18px;
+  color: var(--text-color);
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--beige);
+  }
+
+  h1,
+  h2 {
+    font-family: var(--sans);
+    font-weight: 550;
+    color: var(--text-header);
+  }
+
+  h1 {
+    font-size: 32px;
+    letter-spacing: -1px;
+    margin: 32px 0;
+    @media (max-width: 1024px) {
+      font-size: 36px;
+      margin: 20px 0;
+    }
+  }
+  h2 {
+    text-transform: uppercase;
+    font-size: 24px;
+    line-height: 118%;
+    letter-spacing: -0.24px;
+    margin: 0 0 8px;
+    @media (max-width: 1024px) {
+      font-size: 20px;
+    }
+  }
+  hr {
+    width: 100%;
+  }
+}
+
